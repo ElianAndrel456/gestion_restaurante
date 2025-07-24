@@ -21,7 +21,6 @@ public class GestionRestauranteApplication {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = SpringApplication.run(GestionRestauranteApplication.class, args);
 
-		// Obtener el controlador del contexto de Spring
 		RestauranteController restauranteController = context.getBean(RestauranteController.class);
 
 		System.out.println("Aplicación de gestión de restaurante iniciada.");
@@ -80,7 +79,9 @@ public class GestionRestauranteApplication {
 					restauranteController.listarReservas();
 					break;
 				case 3:
-					System.out.println("Funcionalidad de actualizar reserva en desarrollo...");
+					System.out.print("Ingrese el nombre del cliente para cancelar la reserva: ");
+					String name = scanner.nextLine();
+					restauranteController.actualizarReserva(name);
 					break;
 				case 4:
 					System.out.print("Ingrese el nombre del cliente: ");
